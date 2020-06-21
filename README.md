@@ -61,5 +61,7 @@ Sounds like a lot of fun doesn't it.  Lets break it down even further (told you 
 To accomplish step one we need to create a list of all distinct words in the training data and the key will be the frequency of that word in the set.  We can accomplish this using nltk.FreqDist.
 
 For step two we need to create a dictionary that will be formated like
-    {'contains word X': True or False}
+
+    tweet_features['contains(%s)' % word] = (word in tweet_words)
+    
 where x is the word from our Tweet and it's value is True if in the dictionary of False if it is not.
