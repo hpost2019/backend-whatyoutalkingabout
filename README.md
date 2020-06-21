@@ -1,26 +1,25 @@
-# backend-whatyoutalkingabout
-## What are you talking about?
+# Sentiment Analysis
 
-###Scenario
+## Scenario
 It's all about data.  According to Forbes in 2020 there is around 44 zettabytes (1 zettabyte is 1,000,000,000,000,000,000,000 bytes) of data in our digital universe.  They also stated that we'll create 1.7 megabytes of new information every second for every human being on the planet.  That's a lot of data. (this data came from an old article for an interesting <a href="https://www.forbes.com/sites/bernardmarr/2015/09/30/big-data-20-mind-boggling-facts-everyone-must-read/#3b00d97717b1">read</a>)
 
 Data is important to every type of company.  Problem is nearly <a href="https://learn.g2.com/structured-vs-unstructured-data">80% of the world's digital data is unstructured</a> with a large part of this being social media data.  One of the great social media platforms to gather data is Twitter.  Twitter has more than 321 million active users, sending a daily average of 500 million tweets.
 
 There are many ways to use Twitter data to help companies.  This assessment will focus on Sentiment Analysis.
 
-###What is Sentiment Analysis?
+## What is Sentiment Analysis?
 <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">Wikipedia</a> defines Sentiment Analysis as the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study effective states and subjective information.  Simply put it is getting how a customer feels about a company or product by looking at what they say or in this case what they Tweet.
 
-###Steps required for Sentiment Analysis:
-1- Gather Twitter data
-2- Prepare your data
-3- Create a Sentiment Analysis Model
-4- Visualize Your Results
+## Steps required for Sentiment Analysis:
+### 1- Gather Twitter data
+### 2- Prepare your data
+### 3- Create a Sentiment Analysis Model
+### 4- Visualize Your Results
 
-###Before we get started:
+## Before we get started:
 In order to accomplish this assessment you will need a Twitter account and a Twitter Developer account.  If you already have a Twitter account you can apply for a Twitter developer account <a href="https://developer.twitter.com/en">Here</a>
 
-###Step 1 Gather Twitter data
+### Step 1 Gather Twitter data
 Twitter has many API's you can use to gather Tweets.  You can gather them in real time as they happen, or do a history search from 7 days, 30 days, or full archive.  The 30 days and full archive are premium APIs, but you have trial access to them that has limits.  We will be gathering real time Tweets.
 
 There are many open source libraries you can use with Python to capture Twitter data, in this assessment you will be using <a href="http://docs.tweepy.org/en/v3.8.0/getting_started.html">tweepy</a>
@@ -31,7 +30,7 @@ Create a separate module called gathertweets.py in this module use tweepy to set
 
 {"text": tweet.text, "label": None}
 
-###Step 2 Prepare Your data
+### Step 2 Prepare Your data
 In Sentiment Analysis there are a few things that do not help in the analysis so we can remove them, they are punctuation, usernames, URLs, and hashtags.  When we speak we use a lot of stop words.  Stop words are sentence fluff and have no bearing on Sentiment Analysis so to save processing time we should remove them first.  Then we need to get rid of duplicate characters in words so if someone typed caaaaar it would be replace with car so we do not miss any important words.  Then finally we will break the tweet into words or what is called tokenize the tweet.
 
 1- Use the string library and import punctuation you can use this to strip punctuation 
@@ -39,7 +38,7 @@ In Sentiment Analysis there are a few things that do not help in the analysis so
 2- Use regex to search for usernames, URLs and hashtags in the Tweet and remove them.
 3- Python has a library nltk <a. href="https://www.nltk.org/">Natural Language Toolkit</a.> that can be used to get rid of stop words and to tokenize the tweets.
 
-###Step 3 Create a Sentiment Analysis Model
+### Step 3 Create a Sentiment Analysis Model
 This is the fun part of the mind boggling part.  Computers do not understand human language so we need to train our program to know if a Tweet is positive or negative based on the words in the Tweet.  As with any training the more you train the better you become.  We can not just download a bunch of tweets and pass it to our model and have it reaturn positive or negative without training it first.
 
 So how do we train, well first we need a set of training data.  But I just said our model would return nothing if not trained, that is correct.  So to prepare this training data we have to go old school and do it by hand.  So we would have to capture our Tweets, then go through them by hand and classify them as positive or negative so we would be able to train our model.
