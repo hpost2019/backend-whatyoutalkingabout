@@ -24,19 +24,18 @@ Twitter has many API's you can use to gather Tweets.  You can gather them in rea
 
 There are many open source libraries you can use with Python to capture Twitter data, in this assessment you will be using <a href="http://docs.tweepy.org/en/v3.8.0/getting_started.html">tweepy</a>
 
-When doing Sentiment Analysis you will capture Tweets about a particular subject.  This subject can be current events, sporting events or even a product you are interested in.  For this assessment the user will pass in the topic as an arugment when they launch the program.  In sentimentanalysis.py accept input from the user of the search terms, each term should be separated by a comma.
+When doing Sentiment Analysis you will capture Tweets about a particular subject.  This subject can be current events, sporting events or even a product you are interested in.  For this assessment the user input the search terms, each term should be separated by a comma.
 
-Create a separate module called gathertweets.py in this module use tweepy to setup a stream and capture live Tweets about your topic, save these to a csv file called tweets.csv in the following format:
+Create a separate module called gathertweets.py in this module use tweepy to setup a stream and capture live Tweets about your topic, save these in a list called tweets in the following format:
 
 {"text": tweet.text, "label": None}
 
 ### Step 2 Prepare Your data
-In Sentiment Analysis there are a few things that do not help in the analysis so we can remove them, they are punctuation, usernames, URLs, and hashtags.  When we speak we use a lot of stop words.  Stop words are sentence fluff and have no bearing on Sentiment Analysis so to save processing time we should remove them first.  Then we need to get rid of duplicate characters in words so if someone typed caaaaar it would be replace with car so we do not miss any important words.  Then finally we will break the tweet into words or what is called tokenize the tweet.
+In Sentiment Analysis there are a few things that do not help in the analysis so we can remove them, they are punctuation, usernames, URLs, and hashtags.  When we speak we use a lot of stop words.  Stop words are sentence fluff and have no bearing on Sentiment Analysis so to save processing time we should remove them first.  Then we need to get rid of duplicate characters in words so if someone typed caaaaar it would be replaced with car so we do not miss any important words.  Then finally we will break the tweet into words or what is called tokenize the tweet.
 
-1- Use the string library and import punctuation you can use this to strip punctuation 
-   from the tweet.
-2- Use regex to search for usernames, URLs and hashtags in the Tweet and remove them.
-3- Python has a library nltk <a. href="https://www.nltk.org/">Natural Language Toolkit</a.> that can be used to get rid of stop words and to tokenize the tweets.
+#### 1- Use the string library and import punctuation you can use this to strip punctuation from the tweet.
+#### 2- Use regex to search for usernames, URLs and hashtags in the Tweet and remove them.
+#### 3- Python has a library nltk <a. href="https://www.nltk.org/">Natural Language Toolkit</a.> that can be used to get rid of stop words and to tokenize the tweets.
 
 ### Step 3 Create a Sentiment Analysis Model
 This is the fun part of the mind boggling part.  Computers do not understand human language so we need to train our program to know if a Tweet is positive or negative based on the words in the Tweet.  As with any training the more you train the better you become.  We can not just download a bunch of tweets and pass it to our model and have it reaturn positive or negative without training it first.
