@@ -38,23 +38,23 @@ In Sentiment Analysis there are a few things that do not help in the analysis so
 #### 3- Python has a library nltk <a href="https://www.nltk.org/">Natural Language Toolkit</a> that can be used to get rid of stop words and to tokenize the tweets.
 
 ### Step 3 Create a Sentiment Analysis Model
-This is the fun part of the mind boggling part.  Computers do not understand human language so we need to train our program to know if a Tweet is positive or negative based on the words in the Tweet.  As with any training the more you train the better you become.  We can not just download a bunch of tweets and pass it to our model and have it reaturn positive or negative without training it first.
+This is the fun part or the mind boggling part.  Computers do not understand human language so we need to train our program to know if a Tweet is positive or negative based on the words in the Tweet.  As with any training the more you train the better you become.  We can not just download a bunch of tweets and pass it to our model and have it return positive or negative without training it first.
 
 So how do we train, well first we need a set of training data.  But I just said our model would return nothing if not trained, that is correct.  So to prepare this training data we have to go old school and do it by hand.  So we would have to capture our Tweets, then go through them by hand and classify them as positive or negative so we would be able to train our model.
 
 This is a lot of work, fortunately a guy named Niek Sanders has hand-classified 5000 Tweets so we do not have to.  Unfortunately Twitter does not allow you to store Tweet data on a personal device.  So included in this repo are two files first is corpus.csv this is Niek Sanders' corpus file it is comprised of a keyword(topic of the Tweet), label(pos/neg) and a Tweet ID number.  The next file is retrievetrainingdata.py this uses the library python-twitter to connect to Twitter's API and download the tweets.  However Twitter has limits on how many Tweets you can download in 15 minutes and if you abuse it they will block your app from the API.  You can shorten this corpus file but remember the more data you train your model with the more accurate it will be.  If you do all 5000 it can take up to 6 hours to get all the Tweets, so this will create a file called tweetDataFile.csv (I know we are not supposed to store Tweets, but I am not waiting 6 hours every time I need to test my app.  Just do not add this file to your repo. Lucky for you this module is already tested and working, it took me three trys to accomplish it(18 hours of nothing but Tweets scrolling in my console.))  You can run this by importing it into your sentimentanalysis.py and using this 
+
     training_data = build_training("corpus.csv", "tweetDataFile.csv")
 
 Hope you got a good nights sleep and have your training data.  Before we can continue to train our model you need to run the training data through step 2 first.  Once data is prepared we can continue.
 
-Now we need a classifier to train our model.  For this we will use Naive Bayes Classifier which is based on Bayes' Theorem.  If you enjoy math and want to dive deep into this here is a staring point https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn .
-I will not be going into this here because for one thing this readme file is getting way to long.
+Now we need a classifier to train our model.  For this we will use Naive Bayes Classifier which is based on Bayes' Theorem.  If you enjoy math and want to dive deep into this here is a starting point https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn .  I will not be going into this here because for one thing this readme file is getting way too long.
 
 In order to build our model we need to do the following:
-1- Build a vocabulary of all words in our training data.
-2- Match tweet content against our vocabulary word-by-word
-3- Build our word feature vector
-4- Plug our feature vector into the Naive Bayes Classifier.
+#### 1- Build a vocabulary of all words in our training data.
+#### 2- Match tweet content against our vocabulary word-by-word
+#### 3- Build our word feature vector
+#### 4- Plug our feature vector into the Naive Bayes Classifier.
 
 Sounds like a lot of fun doesn't it.  Lets break it down even further (told you this readme is long).
 
