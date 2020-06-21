@@ -35,7 +35,7 @@ In Sentiment Analysis there are a few things that do not help in the analysis so
 
 #### 1- Use the string library and import punctuation you can use this to strip punctuation from the tweet.
 #### 2- Use regex to search for usernames, URLs and hashtags in the Tweet and remove them.
-#### 3- Python has a library nltk <a. href="https://www.nltk.org/">Natural Language Toolkit</a.> that can be used to get rid of stop words and to tokenize the tweets.
+#### 3- Python has a library nltk <a href="https://www.nltk.org/">Natural Language Toolkit</a> that can be used to get rid of stop words and to tokenize the tweets.
 
 ### Step 3 Create a Sentiment Analysis Model
 This is the fun part of the mind boggling part.  Computers do not understand human language so we need to train our program to know if a Tweet is positive or negative based on the words in the Tweet.  As with any training the more you train the better you become.  We can not just download a bunch of tweets and pass it to our model and have it reaturn positive or negative without training it first.
