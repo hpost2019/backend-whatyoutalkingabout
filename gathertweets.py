@@ -1,9 +1,12 @@
 import tweepy
-import practicecode.keys as key
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 
-auth = tweepy.OAuthHandler(key.consumer_key, key.consumer_secret)
-auth.set_access_token(key.access_key, key.access_secret)
+auth = tweepy.OAuthHandler(os.environ['CONSUMER_KEY'],
+                           os.environ['CONSUMER_SECRET'])
+auth.set_access_token(os.environ['ACCESS_KEY'], os.environ['ACCESS_SECRET'])
 
 api = tweepy.API(auth)
 

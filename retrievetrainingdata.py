@@ -1,12 +1,13 @@
 import twitter
-import practicecode.keys as key
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # initialize api instance
-twitter_api = twitter.Api(consumer_key=key.consumer_key,
-                          consumer_secret=key.consumer_secret,
-                          access_token_key=key.access_key,
-                          access_token_secret=key.access_secret)
+twitter_api = twitter.Api(consumer_key=os.environ['CONSUMER_KEY'],
+                          consumer_secret=os.environ['CONSUMER_SECRET'],
+                          access_token_key=os.environ['ACCESS_KEY'],
+                          access_token_secret=os.environ['ACCESS_SECRET'])
 
 print(twitter_api.VerifyCredentials())
 
