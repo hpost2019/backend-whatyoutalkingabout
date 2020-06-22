@@ -60,7 +60,7 @@ def main():
     search_list.append(search_term)
     # print(search_list)
     # training_data = build_training("corpus.csv", "tweetDataFile.csv")
-    training_tweets = load_training_data("tweetDataFile.csv")
+    training_tweets = load_training_data("practicecode/tweetDataFile.csv")
     test_tweets = get_tweets(search_list)
     preproc_training_tweets = tweet_processor.process_tweets(
                                                             training_tweets)
